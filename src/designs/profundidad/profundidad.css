@@ -365,17 +365,17 @@
 .prof-shark {
   position: absolute;
   top: 50%;
-  width: clamp(90px, 9vw, 160px);
+  width: clamp(160px, 16vw, 320px);
   z-index: 4;
   pointer-events: none;
-  filter: drop-shadow(0 12px 22px rgba(0, 0, 0, 0.55));
+  filter: drop-shadow(0 16px 30px rgba(0, 0, 0, 0.55));
 }
 .prof-shark-left {
-  left: -4px;
+  left: 6px;
   transform: translateY(-50%);
 }
 .prof-shark-right {
-  right: -4px;
+  right: 6px;
   transform: translateY(-50%) scaleX(-1);
 }
 .prof-shark-svg {
@@ -438,7 +438,7 @@
 }
 @media (max-width: 760px) {
   .prof-shark {
-    width: clamp(64px, 20vw, 96px);
+    width: clamp(110px, 30vw, 170px);
   }
 }
 @media (prefers-reduced-motion: reduce) {
