@@ -355,6 +355,93 @@
   }
 }
 
+/* Gallery sharks */
+.prof-shark {
+  position: absolute;
+  top: 50%;
+  width: clamp(90px, 9vw, 160px);
+  z-index: 4;
+  pointer-events: none;
+  filter: drop-shadow(0 12px 22px rgba(0, 0, 0, 0.55));
+}
+.prof-shark-left {
+  left: -4px;
+  transform: translateY(-50%);
+}
+.prof-shark-right {
+  right: -4px;
+  transform: translateY(-50%) scaleX(-1);
+}
+.prof-shark-svg {
+  width: 100%;
+  height: auto;
+  display: block;
+  overflow: visible;
+}
+.shark-body {
+  fill: #5b84ab;
+}
+.shark-fin,
+.shark-tail path {
+  fill: #35557a;
+}
+.shark-jaw path {
+  fill: #4a70a0;
+}
+.shark-teeth {
+  fill: var(--paper);
+}
+.shark-eye {
+  fill: var(--paper);
+}
+.shark-pupil {
+  fill: #0b1220;
+}
+.shark-jaw {
+  transform-box: view-box;
+  transform-origin: 187px 54px;
+  rotate: 0deg;
+}
+.prof-shark.is-biting .shark-jaw {
+  animation: sharkChomp 280ms cubic-bezier(0.3, 0.9, 0.4, 1) 1;
+}
+.prof-shark.is-biting .prof-shark-svg {
+  animation: sharkSquash 280ms cubic-bezier(0.34, 1.2, 0.64, 1) 1;
+}
+@keyframes sharkChomp {
+  0% {
+    rotate: 0deg;
+  }
+  32% {
+    rotate: 42deg;
+  }
+  100% {
+    rotate: 0deg;
+  }
+}
+@keyframes sharkSquash {
+  0% {
+    transform: scale(1);
+  }
+  32% {
+    transform: scale(1.08, 0.9);
+  }
+  100% {
+    transform: scale(1);
+  }
+}
+@media (max-width: 760px) {
+  .prof-shark {
+    width: clamp(64px, 20vw, 96px);
+  }
+}
+@media (prefers-reduced-motion: reduce) {
+  .prof-shark.is-biting .shark-jaw,
+  .prof-shark.is-biting .prof-shark-svg {
+    animation: none;
+  }
+}
+
 /* CTA */
 .prof-cta {
   min-height: 76vh;

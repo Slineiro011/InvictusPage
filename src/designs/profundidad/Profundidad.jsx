@@ -2,6 +2,7 @@ import { useEffect, useRef } from 'react'
 import { gsap, ScrollTrigger } from '../../lib/gsap.js'
 import { club, copy, images } from '../../content.js'
 import WhatsAppFab from '../../components/WhatsAppFab.jsx'
+import Shark from './Shark.jsx'
 import './profundidad.css'
 
 const MAX_DEPTH = 30
@@ -31,6 +32,7 @@ const beats = [
 ]
 
 export default function Profundidad() {
+  const rootRef = useRef(null)
   const stageRef = useRef(null)
   const bgRef = useRef(null)
   const beatRefs = useRef([])
@@ -38,6 +40,8 @@ export default function Profundidad() {
   const trackRef = useRef(null)
   const dialRef = useRef(null)
   const dialNumberRef = useRef(null)
+  const leftSharkRef = useRef(null)
+  const rightSharkRef = useRef(null)
 
   useEffect(() => {
     const reduceMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches
@@ -111,6 +115,18 @@ export default function Profundidad() {
       if (trackRef.current) {
         const track = trackRef.current
         const distance = () => track.scrollWidth - window.innerWidth
+
+        const bite = (sharkEl) => {
+          if (!sharkEl) return
+          sharkEl.classList.remove('is-biting')
+          void sharkEl.offsetWidth
+          sharkEl.classList.add('is-biting')
+        }
+
+        let exitedLeft = 0
+        let enteredRight = 0
+        const biteZone = 48
+
         gsap.to(track, {
           x: () => -distance(),
           ease: 'none',
@@ -121,6 +137,20 @@ export default function Profundidad() {
             scrub: 0.5,
             pin: true,
             invalidateOnRefresh: true,
+            onUpdate: () => {
+              const items = track.children
+              let exited = 0
+              let entered = 0
+              for (const item of items) {
+                const r = item.getBoundingClientRect()
+                if (r.right <= biteZone) exited++
+                if (r.left <= window.innerWidth - biteZone) entered++
+              }
+              if (exited > exitedLeft) bite(leftSharkRef.current)
+              if (entered > enteredRight) bite(rightSharkRef.current)
+              exitedLeft = exited
+              enteredRight = entered
+            },
           },
         })
       }
@@ -141,13 +171,13 @@ export default function Profundidad() {
       })
 
       ScrollTrigger.refresh()
-    }, stageRef)
+    }, rootRef)
 
     return () => ctx.revert()
   }, [])
 
   return (
-    <div className="prof">
+    <div className="prof" ref={rootRef}>
       <section className="prof-hero">
         <img className="prof-hero-bg" src={images.underwaterFinkick} alt="Atleta de Invictus Apnea en descenso bajo el agua" />
         <div className="prof-hero-veil" />
@@ -213,6 +243,8 @@ export default function Profundidad() {
       </section>
 
       <section ref={galleryRef} className="prof-gallery">
+        <Shark side="left" wrapRef={leftSharkRef} />
+        <Shark side="right" wrapRef={rightSharkRef} />
         <div ref={trackRef} className="prof-gallery-track">
           <div className="gallery-item wide">
             <video src={images.video} autoPlay muted loop playsInline />
