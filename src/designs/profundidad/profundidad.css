@@ -213,15 +213,21 @@
   letter-spacing: 0.2em;
   color: var(--cyan);
 }
-@media (max-width: 760px) {
+@media (max-width: 1080px) {
   .beat-text {
     max-width: 84vw;
   }
   .prof-dial-wrap {
     top: auto;
-    bottom: 8vh;
+    bottom: 6vh;
     left: 50%;
     transform: translate(-50%, 0);
+    width: min(34vw, 240px);
+    height: min(34vw, 240px);
+  }
+}
+@media (max-width: 760px) {
+  .prof-dial-wrap {
     width: 44vw;
     height: 44vw;
   }

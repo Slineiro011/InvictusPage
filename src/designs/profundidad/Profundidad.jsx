@@ -49,6 +49,11 @@ export default function Profundidad() {
     const ctx = gsap.context(() => {
       // Hero entrance
       gsap.fromTo(
+        '.prof-hero-logo',
+        { autoAlpha: 0, scale: 0.9 },
+        { autoAlpha: 1, scale: 1, duration: reduceMotion ? 0.3 : 0.8, ease: 'power2.out' },
+      )
+      gsap.fromTo(
         '.prof-hero-mark',
         { autoAlpha: 0, y: 40 },
         { autoAlpha: 1, y: 0, duration: reduceMotion ? 0.3 : 1.4, ease: 'power3.out', delay: 0.2 },
@@ -57,6 +62,23 @@ export default function Profundidad() {
         '.prof-hero-kicker',
         { autoAlpha: 0, y: 16 },
         { autoAlpha: 1, y: 0, duration: reduceMotion ? 0.3 : 1, ease: 'power2.out', delay: 0.1 },
+      )
+      gsap.fromTo(
+        '.prof-hero-bg',
+        { scale: 1.12 },
+        { scale: 1, duration: reduceMotion ? 0.3 : 9, ease: 'sine.out' },
+      )
+      gsap.fromTo(
+        '.prof-fab',
+        { autoAlpha: 0, scale: 0.8, y: 20 },
+        {
+          autoAlpha: 1,
+          scale: 1,
+          y: 0,
+          duration: reduceMotion ? 0.3 : 0.5,
+          ease: 'back.out(1.4)',
+          delay: reduceMotion ? 0 : 1.8,
+        },
       )
 
       if (reduceMotion) {
@@ -95,6 +117,7 @@ export default function Profundidad() {
           { autoAlpha: 1, filter: 'blur(0px)', scale: 1, duration: 0.6, ease: 'none' },
           i - 0.4,
         )
+        tl.to(el.querySelector('.beat-img'), { scale: 1.05, duration: 0.35, ease: 'none' }, i + 0.2)
         tl.fromTo(
           el.querySelectorAll('.beat-text > *'),
           { autoAlpha: 0, y: 30 },
@@ -139,12 +162,20 @@ export default function Profundidad() {
             invalidateOnRefresh: true,
             onUpdate: () => {
               const items = track.children
+              const centerX = window.innerWidth / 2
               let exited = 0
               let entered = 0
               for (const item of items) {
                 const r = item.getBoundingClientRect()
                 if (r.right <= biteZone) exited++
                 if (r.left <= window.innerWidth - biteZone) entered++
+
+                const dist = Math.abs(r.left + r.width / 2 - centerX)
+                const norm = Math.min(1, dist / centerX)
+                gsap.set(item, {
+                  scale: gsap.utils.mapRange(0, 1, 1, 0.92, norm),
+                  opacity: gsap.utils.mapRange(0, 1, 1, 0.7, norm),
+                })
               }
               if (exited > exitedLeft) bite(leftSharkRef.current)
               if (entered > enteredRight) bite(rightSharkRef.current)
