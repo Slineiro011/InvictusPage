@@ -1,6 +1,6 @@
 import { useEffect, useRef } from 'react'
 import { gsap, ScrollTrigger } from '../../lib/gsap.js'
-import { club, copy, images } from '../../content.js'
+import { club, copy, apnea, images } from '../../content.js'
 import WhatsAppFab from '../../components/WhatsAppFab.jsx'
 import Shark from './Shark.jsx'
 import './profundidad.css'
@@ -273,6 +273,22 @@ export default function Profundidad() {
         </div>
       </section>
 
+      <section className="prof-apnea reveal">
+        <img src={images.teamLineup} alt="Miembros de Invictus Apnea listos para entrenar" />
+        <div className="prof-apnea-copy">
+          <span className="eyebrow">{apnea.eyebrow}</span>
+          <p className="prof-apnea-intro">{apnea.intro}</p>
+          <div className="prof-apnea-grid">
+            {apnea.benefits.map((b) => (
+              <div key={b.title} className="prof-apnea-item">
+                <h3>{b.title}</h3>
+                <p>{b.desc}</p>
+              </div>
+            ))}
+          </div>
+        </div>
+      </section>
+
       <section ref={galleryRef} className="prof-gallery">
         <Shark side="left" wrapRef={leftSharkRef} />
         <Shark side="right" wrapRef={rightSharkRef} />
@@ -303,6 +319,18 @@ export default function Profundidad() {
           </div>
           <div className="gallery-item narrow">
             <video src={images.videoOpenWaterTow} autoPlay muted loop playsInline />
+          </div>
+          <div className="gallery-item">
+            <img src={images.teamCelebration} alt="" />
+          </div>
+          <div className="gallery-item wide">
+            <video src={images.videoGroupSwim} autoPlay muted loop playsInline />
+          </div>
+          <div className="gallery-item">
+            <img src={images.teamPoolside} alt="" />
+          </div>
+          <div className="gallery-item">
+            <img src={images.teamRobe} alt="" />
           </div>
         </div>
       </section>

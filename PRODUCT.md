@@ -51,7 +51,14 @@ Training happens at Complejo Acuático Villa Olímpica, Pereira. Instruction is 
   - Club logo (red/blue diver-flag with OK hand sign).
   - Group of members floating at the pool edge in wetsuits/masks, hands raised in "OK" signs, red event tent and stadium seating in background.
   - Underwater push-off/glide shot of a swimmer mid-pool.
+  - A member in a floral rash guard surfacing with arms raised.
+  - Group celebration photo poolside with the coach (whistle visible), peace signs.
+  - Group lineup in wetsuits and fins posed at poolside.
+  - Two more casual poolside group photos (by the diving platform; one member wrapped in a poncho towel).
+  - Video of the group swimming together in the pool (short clip).
+  - Video of open-water/lake training (tow with a buoy) and a boat excursion video — the club is not pool-only; it also trains in open water at least occasionally.
 - No pricing, no exact schedule, no Instagram handle, no additional instructor bios, and no competition results are on hand yet — must not be fabricated; the site's design and copy should route those gaps to the WhatsApp CTA rather than inventing content.
+- General, non-club-specific educational content about what freediving/apnea is and its commonly recognized benefits (lung capacity, breath control, calm under stress, low-impact conditioning) may be stated without club-specific verification — it describes the discipline, not a claim about this club's outcomes.
 
 ## Product Principles
 

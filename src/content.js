@@ -18,10 +18,15 @@ export const images = {
   groupPoolEdge: '/img/group-pool-edge.jpg',
   underwaterPushoff: '/img/underwater-pushoff.jpg',
   memberFloral: '/img/member-floral.jpg',
+  teamCelebration: '/img/team-celebration.jpg',
+  teamLineup: '/img/team-lineup.jpg',
+  teamPoolside: '/img/team-poolside.jpg',
+  teamRobe: '/img/team-robe.jpg',
   video: '/img/training.mp4',
   videoPoolEdge: '/img/training-pool-edge.mp4',
   videoOpenWaterTow: '/img/training-openwater-tow.mp4',
   videoBoat: '/img/training-boat.mp4',
+  videoGroupSwim: '/img/training-group-swim.mp4',
 }
 
 export const copy = {
@@ -32,4 +37,28 @@ export const copy = {
     'Las sesiones las dirige el entrenador Jhon Harold Giraldo. Trabajamos técnica de aletas, control de la respiración y progresión segura en piscina, en grupo.',
   ctaLead: '¿Quieres unirte?',
   ctaBody: 'Escríbenos por WhatsApp y te contamos horarios vigentes y planes disponibles.',
+}
+
+export const apnea = {
+  eyebrow: 'Qué es la apnea',
+  intro:
+    'La apnea es bucear sin tanque: entrenas el cuerpo y la mente para moverte bajo el agua controlando la respiración, no forzándola.',
+  benefits: [
+    {
+      title: 'Capacidad pulmonar',
+      desc: 'El entrenamiento progresivo amplía cuánto aire puedes manejar y cómo lo usas.',
+    },
+    {
+      title: 'Control de la respiración',
+      desc: 'Aprendes a respirar con intención, dentro y fuera del agua.',
+    },
+    {
+      title: 'Calma bajo presión',
+      desc: 'La mente se entrena para mantenerse tranquila cuando el cuerpo pide aire.',
+    },
+    {
+      title: 'Cuerpo y postura',
+      desc: 'Técnica de aletas y desplazamiento que tonifica sin impacto.',
+    },
+  ],
 }

@@ -305,6 +305,70 @@
   }
 }
 
+/* What is apnea */
+.prof-apnea {
+  display: grid;
+  grid-template-columns: 0.9fr 1.1fr;
+  align-items: stretch;
+  background: var(--ink);
+}
+.prof-apnea img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  min-height: 58vh;
+}
+.prof-apnea-copy {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  padding: 8vw;
+}
+.prof-apnea-intro {
+  font-family: var(--display);
+  font-weight: 400;
+  font-size: clamp(22px, 2.6vw, 32px);
+  line-height: 1.3;
+  color: var(--paper);
+  margin: 0 0 6vh;
+  max-width: 46ch;
+}
+.prof-apnea-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 5vh 2vw;
+}
+.prof-apnea-item {
+  border-top: 1px solid rgba(243, 246, 251, 0.15);
+  padding-top: 16px;
+}
+.prof-apnea-item h3 {
+  font-family: var(--body);
+  font-weight: 700;
+  font-size: 15px;
+  color: var(--cyan);
+  margin: 0 0 8px;
+}
+.prof-apnea-item p {
+  font-family: var(--body);
+  font-size: 14px;
+  line-height: 1.55;
+  color: rgba(243, 246, 251, 0.75);
+  margin: 0;
+}
+@media (max-width: 860px) {
+  .prof-apnea {
+    grid-template-columns: 1fr;
+  }
+  .prof-apnea img {
+    min-height: 42vh;
+  }
+  .prof-apnea-grid {
+    grid-template-columns: 1fr;
+    gap: 4vh;
+  }
+}
+
 /* Gallery */
 .prof-gallery {
   position: relative;
